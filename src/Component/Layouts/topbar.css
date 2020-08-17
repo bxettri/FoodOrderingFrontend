@@ -1,0 +1,22 @@
+#topbar
+{
+    height:50px;
+    text-align: center;
+    background-color: silver;
+    width: auto;
+    margin-left: 70px;
+    
+}
+#Whistlist
+{
+    margin: 12px;
+    
+}
+#order
+{
+    margin: 12px;
+}
+#account
+{
+    margin:12px;
+}
