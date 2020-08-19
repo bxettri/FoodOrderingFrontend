@@ -77,7 +77,7 @@ export default class ListFoods extends Component {
       Axios.delete(`http://localhost:3002/resturants/${resId}`, this.state.config)
       .then((response) => {
          
-          })
+          },alert("Deleted Sucessfully"))
         }
 
         handleEdit = (resId) => {
@@ -125,7 +125,7 @@ export default class ListFoods extends Component {
     
         Axios.put(`http://localhost:3002/resturants/${resId._id}`, 
         { resturant_name: resId.resturant_name, resturant_address: resId.resturant_address },
-        this.state.config).then((response) => console.log(response.data));
+        this.state.config).then((response) => console.log(response.data),alert("Updated Successfully"));
        
         
       }

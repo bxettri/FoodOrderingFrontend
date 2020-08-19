@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react'
 import '../Layouts/navbar.css';
 import '../User/usernavbar.css';
-import {NavbarText,Container,Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,Button, Form, FormGroup, Label, Input, FormText, Modal, ModalHeader, ModalBody, ModalFooter, buttonLabel, Row, Col} from 'reactstrap'
+import {UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem ,NavbarText,Container,Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,Button, Form, FormGroup, Label, Input, FormText, Modal, ModalHeader, ModalBody, ModalFooter, buttonLabel, Row, Col} from 'reactstrap'
 import useravatar from '../assets/user.svg';
 import bagavatar from '../assets/shopping-bag.svg';
 import Axios from 'axios';
@@ -104,19 +104,37 @@ export default class Navigation extends Component {
    
             </Nav>
             <div>
-              <Container>
-             <form class="form-inline my-2 my-lg-0">
               
-                <div class="dropdown">
+              <Container>
+              <UncontrolledDropdown>
+              <DropdownToggle  color="light">
+                More
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                <NavLink href="/order/">View order</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                <NavLink href="/profile/">Profile Update</NavLink>
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>
+                <NavLink onClick={this.handleLogout}>Logout</NavLink>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+             <form class="form-inline my-2 my-lg-0">
+            
+                {/* <div class="dropdown">
                   <button class="dropbtn"><img src={useravatar} /></button>
                   <div class="dropdown-content">
                     <a class="btn btn-primary" href='/profile'>Profile Update</a>
                     <a class="btn btn-success" href='/order'>View order</a>
                     <a type="button" color="warning" onClick={this.handleLogout}>Logout</a>
                   </div>
-                </div>
+                </div> */}
                 <img src={bagavatar} id="bag" onClick={this.togglebag} />
-                
+              
               </form>
               </Container>
               </div>

@@ -3,7 +3,8 @@ import { Container, Label, Form, FormGroup,Select, Button, Input, Dropdown,Dropd
 import Axios from 'axios'
 import ListResturant from '../Pages/ListResturant';
 import { Link, Redirect } from 'react-router-dom'
-
+import Navbar from '../Admin/Header/AdminNavbar'
+import Footer from '../Admin/Footer/Adminfooter'
 export default class AddRestuarant extends Component {
   constructor(props) {
     super(props)
@@ -28,7 +29,6 @@ export default class AddRestuarant extends Component {
     .then((response)=>
     {
       const data = response.data;
-      
       this.setState({food :  data});
       console.log("Data recive");
      
@@ -50,10 +50,10 @@ export default class AddRestuarant extends Component {
           this.setState({
               resturant_name: this.state.resturant_name,
               resturant_address:this.state.resturant_address,
-              fooditem:this.state.fooditem,
+             
               res_image: response.data.filename
 
-          })
+          }, alert("Image uploaded Sucessfully"))
       }).catch((err) => console.log(err.response))
     }
 
@@ -72,10 +72,10 @@ export default class AddRestuarant extends Component {
     this.addRest = (e) => {
       e.preventDefault();
       Axios.post('http://localhost:3002/resturants',this.state,this.state.config)
-      .then((response) => console.log(response.data)).catch((err) => console.log(err.response))
-      
+      .then((response) => console.log(response.data), alert("Resturand added sucessfully"),window.location.reload(false)).catch((err) => console.log(err.response))
+    
          
-  
+      
  
       }
 
@@ -99,8 +99,8 @@ export default class AddRestuarant extends Component {
       const { foodId, handleFoodChange, displayfood, food} = this.props;
       
         return (
-        
-           
+        <div>
+           <Navbar/>
           <Container>
           <h2>Add Resturant</h2>
           <form>
@@ -119,24 +119,7 @@ export default class AddRestuarant extends Component {
                               name='resturant_address'
                               value={this.state.resturant_address}
                               onChange={ this.handleChange} />
-                      <FormGroup>
-                        <Label for ='foodname'>Select food</Label>
-                        <Input type='select' name='fooditem' id='foodid' onChange={this.handleFoodChange}>
-                          {
-                          
-                          this.state.food.map(foods => <option value={foods._id}>{foods.foodname}
-                          </option>)
-                          
-                          
-                          })
-                        
-                        
-                        </Input>
-
-                
-                            
-                              
-                      </FormGroup>
+                      
                       <FormGroup>
                           
                           <Input type='file' name='res_image' id='res_image'
@@ -156,8 +139,8 @@ export default class AddRestuarant extends Component {
 
           <ListResturant />
       </Container>
-                
-         
+                <Footer/>
+         </div>
         )
                         }
     }

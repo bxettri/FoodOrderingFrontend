@@ -1,10 +1,10 @@
 
 #foot
 {
-    background-color: black;
-    text-decoration: white;
+    background-color:rgb(248,249,250);
+    text-decoration: rgb(51, 48, 48);
 }
-#foot p
+/* #foot p
 {
     color:white;
 }
@@ -79,4 +79,4 @@ section .section-title {
     padding-bottom: 0px;
     margin-bottom: 10px;
 }
-}
+} */

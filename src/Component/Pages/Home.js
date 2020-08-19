@@ -19,7 +19,7 @@ export default class Home extends Component {
                 <div>
                 <UserNavbar />
                
-                <Category />
+                {/* <Category /> */}
                 <Poppular />
                 <Restuarant />
                 <ResturantFood />

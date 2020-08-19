@@ -127,9 +127,6 @@ export default class Food extends Component {
   }
 
   handlecart = (foodid) => {
-
-
-
     Axios.post(`http://localhost:3002/cart/`,
       {
         food: this.state.food._id,
@@ -144,15 +141,10 @@ export default class Food extends Component {
         })
       }).catch((err) => console.log(err.response));
   }
-  render() {
 
+  render() {
     return (
       <div>
-        <div className="just">
-        <CardImg top width="100%" height="500%" src={cardImage} alt="Card image cap" />
-        </div>
-
-
         <div className="container">
           <p>All Avaliable</p>
           {/* {
@@ -168,63 +160,32 @@ export default class Food extends Component {
               </Card>
             ))
           } */}
-
-
-
           <Row>
-
             {
-
               this.state.popular.map((pop =>
                 <Card onClick={() => this.handleFood(pop._id)}>
-               
                   <figure className="Col-md-4 card card-product" id="product">
-
                     <div className="image_wrap">
                       <img src={`http://localhost:3002/uploads/${pop.foodimage}`} onClick={this.addcart}
-
                       />
                     </div>
                     <figcaption class="info-wrap">
                       <h4 class="title">
-                        {pop.foodname}  
-
-
+                        {pop.foodname}
                       </h4>
                       {pop.price}
                     </figcaption>
                   </figure>
-               
-              
                 </Card>
               ))
             }
-
-
-
-
-
-
           </Row>
-
-
-
-
         </div>
-
         <Modal isOpen={this.state.modal}>
-
-
-
-
           <p> <ModalHeader toggle={this.toggle}>{this.state.food.foodname}<br></br>
                    Rs.{this.state.totalprice * this.state.quantity}
-
           </ModalHeader></p>
-
-
           <ModalBody>
-
             <p>Add notes</p>
             <textarea id="notes"></textarea>
           </ModalBody>
@@ -233,33 +194,11 @@ export default class Food extends Component {
               <button onClick={this.IncrementItem}>+</button>
               <input className="inputne" value={this.state.quantity} onChange={this.handleChange} />
               <button onClick={this.DecreaseItem}>-</button>
-
               <button className="btn btn-success" id="btnbag" onClick={() => this.handlecart(this.state.orderfood._id)}>Add to bag</button>
             </Container>
-
-
-
-
           </ModalFooter>
-
-
-
-
-
-
-
-
         </Modal>
-
-
-
-
       </div>
-
-
-
-
-
     )
   }
 }

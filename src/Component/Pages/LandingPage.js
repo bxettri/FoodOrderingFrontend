@@ -17,7 +17,7 @@ export default function LandingPage() {
             
              <Navbar />
              
-             <Slider />
+             {/* <Slider /> */}
            
 
             

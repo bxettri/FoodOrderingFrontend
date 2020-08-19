@@ -1,4 +1,8 @@
 import React from 'react'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faMapMarkerAlt, faEnvelope, faMobile } from '@fortawesome/free-solid-svg-icons'
+import { Container } from 'reactstrap'
 
 import  './footer.css';
 
@@ -6,61 +10,111 @@ export default function Footer() {
     return (
        
 		<div id="foot">
-			<div class="row text-center text-xs-center text-sm-left text-md-left">
-				<div class="col-xs-12 col-sm-4 col-md-4">
-				
-						<p>Foodista</p>
-						<p>Contact@foodista.com</p>
-						<p>014782806</p>
-						<p>New Baneshwor, KTM</p>
-						
-						
-						
-				
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
+		<FooterContainer className="main-footer text-center">
+
+<div className="footer-middle">
+	<div className="container">
+		<div className="row">
+
+			{/* Column 1 */}
+			<div className="col-md-3 col-sm-6">
+				<h4>Foodista</h4>
+				<ul className="list-unstyled">
+					<li><FontAwesomeIcon icon ={faMapMarkerAlt} /> &nbsp;Baneshwor, KTM</li>
+					<li><FontAwesomeIcon icon ={faEnvelope} /> &nbsp;contact@Foodista.com</li>
+					<li><FontAwesomeIcon icon ={faMobile} /> &nbsp;9813929379</li>
 					
-					<ul class="list-unstyled quick-links">
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About Food</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Blog</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Contact</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Add Resturant</a></li>
-						
-					</ul>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
-				
-					<ul class="list-unstyled quick-links">
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Tutorial</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Address</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Query</a></li>
-						
-					</ul>
-				</div>
+				</ul>
 			</div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-					<ul class="list-unstyled list-inline social text-center">
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
-					</ul>
-				</div>
-				
-			</div>	
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-				
-					<p class="h6">&copy; All right Reversed.<a class="text-green ml-2" href="" target="_blank"></a></p>
-				</div>
-                </div>
-                </div>
+
+
+		 
+
+
+			{/* Column 2 */}
+
+			<div className="col-md-3 col-sm-6">
+				<h4>Quick Links</h4>
+				<ul className="list-unstyled">
+
+					<li><a href="/">Home</a></li>
+		
+					<li><a href="/About">About</a></li>
+					<li><a href="/Registration">Registration</a></li>
+					
+				</ul>
+			</div>
+
+			{/* Column 3 */}
+
+			<div className="col-md-3 col-sm-6">
+				<h4>Get in touch</h4>
+				<ul className="list-unstyled">
+					<li><a href="/">Facebook</a></li>
+					<li><a href="/">Instagram</a></li>
+		
+					<li><a href="/">Twitter</a></li>
+					<li><a href="/">Snapchat</a></li>
+					
+				</ul>
+			</div>
+
+
+
+			{/* Column 4 */}
+
+			<div className="col-md-3 col-sm-6">
+				<h4>Our Partners</h4>
+				<ul className="list-unstyled">
+					<li><a href="/">Sangam Inc.</a></li>
+					<li><a href="/">CG Group</a></li>
+		
+					<li><a href="/">Big 3</a></li>
+					<li><a href="/">DocSity</a></li>
+					
+				</ul>
+			</div>
+
+		</div>
+
+		{/* Footer Bottom */}
+
+		<div className="footer-bottom">
+			<p className="text-center">
+				&copy;{new Date().getFullYear()} DocApp all right reserved
+		</p>
+		</div>
+
+	</div>
+</div>
+</FooterContainer>
+        </div>
                 
 				
 
     )
 }
 
+const FooterContainer = styled.footer`
+
+.footer-middle{
+
+    background: var(--mainDark);
+    padding-top: 3rem;
+    color: var(--mainWhite);
+}
+
+.footer-bottom{
+    padding-topo: 3rem;
+    padding-bottom: 2rem;
+}
+
+ul li a{
+    color: var(--mainGrey);
+    text-decoration: none;
+}
+
+ul li a:hover{
+    color: var(--mainLightGrey);
+}
+`;

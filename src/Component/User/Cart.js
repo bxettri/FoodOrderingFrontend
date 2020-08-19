@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
 
-import { Table, Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup, Container } from 'reactstrap';
+import { Table, Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup, Container, Card } from 'reactstrap';
 
 export default class Cart extends Component {
 
@@ -12,7 +12,7 @@ export default class Cart extends Component {
 
       user: [],
       cart: [],
-      fod: [],
+      food: [],
       viewfood: [],
       modal: false,
       foodname: '',
@@ -123,8 +123,7 @@ export default class Cart extends Component {
 
     return (
       <div>
-
-
+        <Card>
         <Table hover>
           <thead>
             <tr>
@@ -140,7 +139,7 @@ export default class Cart extends Component {
             {
               this.state.cart.map(cart => {
                 return (<tr key={cart._id}>
-                  <td>{cart.food.foodname}</td>
+                  <td>{cart.foodname}</td>
                   <td>{cart.totalprice}</td>
                   <td>{cart.quanity}</td>
                   <td>
@@ -151,16 +150,9 @@ export default class Cart extends Component {
                 </tr>)
               })
             }
-
-
-
           </tbody>
-
-
-
-
-
         </Table>
+        </Card>
 
         <Modal isOpen={this.state.modal}>
 

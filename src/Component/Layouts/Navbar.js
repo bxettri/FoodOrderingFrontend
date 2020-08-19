@@ -1,10 +1,10 @@
-import React, { Component,useState } from 'react'
+import React, { Component, useState } from 'react'
 import burg from '../assets/burger.jpg'
 
 
 import './navbar.css';
-import {FaSearch} from 'react-icons/fa';
-import {MdNotificationsActive} from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
+import { MdNotificationsActive } from 'react-icons/fa';
 
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup } from 'reactstrap';
@@ -15,25 +15,18 @@ import { Redirect } from 'react-router-dom';
 export default class Navbar extends Component {
   constructor(props) {
     super(props)
-  
     this.state = {
-
       modal: false,
-      modalres:false,
+      modalres: false,
       modalbag: false,
       username: '',
       password: '',
       role: ''
-   
-      
-    
     }
-
     this.toggle = this.toggle.bind(this);
-    this.toggleres= this.toggleres.bind(this);
-
-   
+    this.toggleres = this.toggleres.bind(this);
   }
+
   toggle() {
     this.setState({
       modal: !this.state.modal
@@ -54,164 +47,145 @@ export default class Navbar extends Component {
     })
   }
 
-  handleLogin = (e) =>{
-
- 
+  handleLogin = (e) => {
     e.preventDefault();
-    Axios.post('http://localhost:3002/users/login',this.state)
-      .then((response)=>{
+    Axios.post('http://localhost:3002/users/login', this.state)
+      .then((response) => {
         console.log(response);
         localStorage.setItem('token', response.data.token)
         this.setState({
-           role: response.data.role
-         
-       }) 
- }).catch((err) => console.log(err.response))
+          role: response.data.role
+        }, alert("Welcome"))
+      }).catch((err) => console.log(err.response))
+  }
 
 
-}
-     
-            
-  
-  
+
+
   render() {
 
-   
-  
+
+
     if (this.state.role === 'admin') {
       return <Redirect to='/admin' />
-  } else if (this.state.role === 'customer') {
+    } else if (this.state.role === 'customer') {
       return <Redirect to='/home' />
 
-  }
-   
-   
-    
+    }
+
+
+
     return (
       <div>
-          <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
-  <a class="navbar-brand" href="#"><img id="logo" src={burg}/></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+        <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+          <a class="navbar-brand" href="#"><img id="logo" src={burg} />Foodista</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        
-      </li>
-      <li class="nav-item" id="listmenu">
-       
-        <a class="" href=""><FaSearch /></a>
-     
-     
-      </li>
-      <li class="nav-item dropdown">
-        
-        
-      </li>
-      
-    </ul>
-    
-    <form class="form-inline my-2 my-lg-0">
-    <Button id="sign"  color="light"variant="success" onClick={this.toggle}>SignIn</Button>{' '}
-    <Button id="siout"  color="dark"variant="success" onClick={this.toggleres}>SignUp</Button>{' '}
-    
-  
-    
-   
-   
- 
-    <Modal isOpen={this.state.modal}>
-    <ModalHeader toggle={this.toggle}><legend>Login</legend></ModalHeader>
-        
-          <ModalBody>
-          
-          <form>
-                <legend><h3>Sign In</h3></legend>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
 
-                <div className="form-group">
-                    <label>Email address</label>
-                    <input type="text" name="username" className="form-control" placeholder="Username"
-                    value={this.state.username} onChange={this.handlechange} />
-                </div>
+              </li>
+              <li class="nav-item" id="listmenu">
 
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" className="form-control" placeholder="Enter password"
-                    value={this.state.password} onChange={this.handlechange}  />
-                </div>
+                {/* <a class="" href=""><FaSearch /></a>
+      */}
 
-                <div className="form-group">
-                    <div className="custom-control custom-checkbox">
+              </li>
+              <li class="nav-item dropdown">
+
+
+              </li>
+
+            </ul>
+
+            <form class="form-inline my-2 my-lg-0">
+              <Button id="sign" color="light" variant="success" onClick={this.toggle}>SignIn</Button>{' '}
+              <Button id="siout" color="dark" variant="success" href="/register">SignUp</Button>{' '}
+
+
+
+
+
+
+              <Modal isOpen={this.state.modal}>
+                <ModalHeader toggle={this.toggle}><legend>Login</legend></ModalHeader>
+
+                <ModalBody>
+
+                  <form>
+                    <legend><h3>Sign In</h3></legend>
+
+                    <div className="form-group">
+                      <label>Email address</label>
+                      <input type="text" name="username" className="form-control" placeholder="Username"
+                        value={this.state.username} onChange={this.handlechange} />
+                    </div>
+
+                    <div className="form-group">
+                      <label>Password</label>
+                      <input type="password" name="password" className="form-control" placeholder="Enter password"
+                        value={this.state.password} onChange={this.handlechange} />
+                    </div>
+
+                    <div className="form-group">
+                      <div className="custom-control custom-checkbox">
                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
                         <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+                      </div>
                     </div>
-                </div>
 
-                <button type="submit" className="btn btn-primary btn-block" onClick={this.handleLogin}>Submit</button>
-                <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
-                </p>
-            </form>
-          </ModalBody>
-          <ModalFooter>
-          <p className="forgot-password ">
+                    <button type="submit" className="btn btn-primary btn-block" onClick={this.handleLogin}>Submit</button>
+                    <p className="forgot-password text-right">
+                      Forgot <a href="#">password?</a>
+                    </p>
+                  </form>
+                </ModalBody>
+                <ModalFooter>
+                  <p className="forgot-password ">
                     Not registered yet? <a href="/register">sign up?</a>
-                </p>
-          </ModalFooter>
-          
-        </Modal>
+                  </p>
+                </ModalFooter>
 
-
-        <Modal isOpen={this.state.modalres}>
-        <ModalHeader toggle={this.toggleres}><legend>Register</legend></ModalHeader>
-        
-          <ModalBody>
-          
-          <form>
-                <legend><h3>Admin Login</h3></legend>
-
-                <div className="form-group">
-                    <label>Email address</label>
-                    <input type="text" name="username" className="form-control" placeholder="Username"
-                    value={this.state.username} onChange={this.handlechange} />
-                </div>
-
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" className="form-control" placeholder="Enter password"
-                    value={this.state.password} onChange={this.handlechange}  />
-                </div>
-
-                <div className="form-group">
-                    <div className="custom-control custom-checkbox">
+              </Modal>
+              {/* <Modal isOpen={this.state.modalres}>
+                <ModalHeader toggle={this.toggleres}><legend>Register</legend></ModalHeader>
+                <ModalBody>
+                  <form>
+                    <legend><h3>Admin Login</h3></legend>
+                    <div className="form-group">
+                      <label>Email address</label>
+                      <input type="text" name="username" className="form-control" placeholder="Username"
+                        value={this.state.username} onChange={this.handlechange} />
+                    </div>
+                    <div className="form-group">
+                      <label>Password</label>
+                      <input type="password" name="password" className="form-control" placeholder="Enter password"
+                        value={this.state.password} onChange={this.handlechange} />
+                    </div>
+                    <div className="form-group">
+                      <div className="custom-control custom-checkbox">
                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
                         <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+                      </div>
                     </div>
-                </div>
-
-                <button type="submit" className="btn btn-primary btn-block" onClick={this.handleLogin}>Submit</button>
-                <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
-                </p>
-            </form>
-          </ModalBody>
-          <ModalFooter>
-          <p className="forgot-password ">
+                    <button type="submit" className="btn btn-primary btn-block" onClick={this.handleLogin}>Submit</button>
+                    <p className="forgot-password text-right">
+                      Forgot <a href="#">password?</a>
+                    </p>
+                  </form>
+                </ModalBody>
+                <ModalFooter>
+                  <p className="forgot-password ">
                     Not registered yet? <a href="/register">sign up?</a>
-                </p>
-          </ModalFooter>
-          
-        </Modal>
-    
- 
-  </form>
-  </div>
-    
-  
-</nav>
-     
+                  </p>
+                </ModalFooter>
+              </Modal> */}
+            </form>
+          </div>
+        </nav>
       </div>
     )
   }

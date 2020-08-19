@@ -37,7 +37,7 @@ function App() {
          <PrivateRoute path ='/admin' component={AdminDashboard} />
          <PrivateRoute path='/addfood' component={AddFood}/>
          <PrivateRoute path='/addresturant' component={AddRestuarant}/>
-          <PrivateRoute path='/food' component={RestFood} />
+          <PrivateRoute path='/viewFoods/:id' component={RestFood} />
           <PrivateRoute path='/profile' component={ProfileUpdate}/>
           <PrivateRoute path='/order' component={Cart} />
           <PrivateRoute path='/viewuser' component={ActiveUser} />

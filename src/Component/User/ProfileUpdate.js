@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
 import UserNavbar from '../User/UserNavbar';
-
+import Footer from '../Layouts/Foot';
 export default class ProfileUpdate extends Component {
     constructor(props) {
         super(props)
@@ -24,8 +24,8 @@ export default class ProfileUpdate extends Component {
     handleupdate = (e) => {
         e.preventDefault();
         Axios.put('http://localhost:3002/users/me', this.state.user, this.state.config)
-            .then((response) => console.log(response.data)).catch((err) => console.log(err.response))
-        this.props.history.push('/home');
+            .then((response) => console.log(response.data), alert("Profile Updated")).catch((err) => console.log(err.response))
+        // this.props.history.push('/home');
     }
     handleChange(e) {
         this.setState({
@@ -75,6 +75,8 @@ export default class ProfileUpdate extends Component {
 
             <button type="submit" className="btn btn-primary btn-block" onClick={this.handleupdate}>Update</button>
                </form>
+               &nbsp;&nbsp;&nbsp;
+<Footer/>
                </div>
                
         )
