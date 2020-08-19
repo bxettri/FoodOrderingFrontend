@@ -8,7 +8,7 @@ export default class Container extends Component {
                 <Container>
                     <Row>
                      <col>
-                     <h1>Healthy Eating Reinvented</h1>
+                     <h1>Eat healthy</h1>
                      </col>
                     </Row>
                  
