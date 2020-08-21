@@ -145,7 +145,7 @@ export default class AddFood extends Component {
                         <Col md={5}>
                             <FormGroup>
                                 <Label for='resOption'>
-                                    <legend style={{fontSize:18}}>Choose Restaurant: </legend>
+                                    <legend style={{fontSize:18}}>Select Restaurant: </legend>
                                 </Label>
                                 <span> </span>
                                 <select onChange={this.handleChange} value={this.state.resSelect} name='resSelect' id='resOption' style={{width:300, textAlign:'center'}}>
