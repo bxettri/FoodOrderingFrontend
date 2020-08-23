@@ -111,7 +111,7 @@ export default class ListFoods extends Component {
             <thead>
               <tr>
                 <th>Resturant Name</th>
-                <th>Resturant Address</th>
+                <th>Resturant Location</th>
                 <th>Resturant Image</th>
                 <th>Edit</th>
                 <th>Delete</th>
