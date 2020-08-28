@@ -1,0 +1,31 @@
+#login{
+    margin-right: 50px;
+}
+#logo
+{
+    height: 50px;
+}
+#listmenu
+{
+    margin-left: 100px;
+   
+}
+#listmenu a 
+{
+    margin: 10px;
+    list-style: none;
+    color:black;
+    text-decoration: none;
+
+
+}
+#navbar img
+{
+    margin-left: 70px;
+    background-color: snow;
+
+}
+#sign
+{
+    margin: 5px;
+}

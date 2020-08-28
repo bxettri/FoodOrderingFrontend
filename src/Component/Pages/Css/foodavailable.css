@@ -1,0 +1,35 @@
+.backfig{
+    height: 300px;
+    width: 100%;
+    background-color: aqua;
+}
+.container p{
+    margin-top: 20px;
+    
+}
+.Card{
+    padding: 30px;
+}
+ul{
+   padding-top: 3px;
+}
+#menu{
+    margin: 5px;
+}
+ul#menu li {
+    
+    display:inline;
+    margin: 90px;
+
+  }
+  #notes {
+      width: 100%;
+  }
+  #quantity{
+      margin: 0px;
+  }
+ #btnbag {
+     margin: 30px;
+    
+ }
+ 
