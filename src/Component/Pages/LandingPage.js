@@ -6,31 +6,19 @@ import Footer from '../Layouts/Foot'
 import Restuarant from './Restuarant'
 import ResturantFood from './ResturantFood';
 import Slider from './Slider';
-import Topbar from '../Layouts/Topbar';
-import Browseplace from '../Layouts/Browseplace';
 
 
 
 export default function LandingPage() {
     return (
         <div>
-            
-             <Navbar />
-             
-             {/* <Slider /> */}
-           
-
-            
-
+            <Navbar />
+            <Slider />
             <Category />
-            
-           <Poppular />
-
+            <Poppular />
             <Restuarant/>
-           
-           <ResturantFood />
-
-           <Footer/>
+            <ResturantFood />
+            <Footer/>
         </div>
     )
 }

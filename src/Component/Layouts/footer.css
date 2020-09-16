@@ -1,10 +1,15 @@
-
 #foot
 {
     background-color:rgb(248,249,250);
     text-decoration: rgb(51, 48, 48);
 }
-/* #foot p
+/* 
+#foot
+{
+    background-color: black;
+    text-decoration: white;
+}
+#foot p
 {
     color:white;
 }

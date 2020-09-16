@@ -1,101 +1,77 @@
-import React, { Component, useState } from 'react'
-
-import '../../Admin/Header/adminnavbar.css';
-import {UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem ,NavbarText,Container,Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,Button, Form, FormGroup, Label, Input, FormText, Modal, ModalHeader, ModalBody, ModalFooter, buttonLabel, Row, Col} from 'reactstrap'
-
-import Axios from 'axios';
-import { Link, Redirect } from 'react-router-dom'
-import { withRouter } from 'react-router';
-
-
+import React, { Component } from 'react'
+import {Navbar,NavbarBrand,NavbarToggler,Collapse,Nav,NavItem,NavLink,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem, NavbarText} from 'reactstrap';
+import './adminnavbar.css';
 
 
 export default class AdminNavbar extends Component {
-
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
+    constructor(props) {
+        super(props)
     
-      user: [],
-      
-
-      config: {
-        headers: { 'Authorization': `Bearer  ${localStorage.getItem('token')}` }
-      },
+        this.state = {
+             sidenavbar:false,
+             isOpen:false,
+             config: {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+              },
+        }
     }
-  
-  }
-
-
-  handleChange = (e) => {
-    this.setState(
-        { [e.target.name]: e.target.value }
-    )
+     
+    toggle(){
+        this.setState({
+          isOpen: !this.state.isOpen
+        })
+      }
+    
+      handleLogout = (e) => {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        localStorage.clear();
+        if (localStorage.getItem('token') == null) {
+          window.location.reload(false)
+        }
+      }
+    
+    render() {
+        if(localStorage.getItem('token'))
+        {
+            return (
+                <div>
+                <Navbar color="light" light expand="md">
+                    <NavbarBrand href="/admin"><h3 style={{color:'DarkTurquoise'}}>FOODISTA</h3></NavbarBrand>
+                    <NavbarToggler onClick={this.toggle.bind(this)} />
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                    <Nav className="mr-auto" navbar>
+                        <NavItem>
+                            <NavLink href="/admin">Home</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/addresturant">Restaurants</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/addfood">Foods</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/foodCategory">Food Category</NavLink>
+                        </NavItem>
+                        <UncontrolledDropdown nav inNavbar>
+                        <DropdownToggle nav caret>
+                            Options
+                        </DropdownToggle>
+                        <DropdownMenu right>
+                            <DropdownItem href="/viewuser">
+                            View User
+                            </DropdownItem>
+                            <DropdownItem onClick={this.handleLogout}>
+                            Log Out
+                            </DropdownItem>
+                        </DropdownMenu>
+                        </UncontrolledDropdown>
+                    </Nav>
+                    <NavbarText>Welcome, </NavbarText>
+                    </Collapse>
+                </Navbar>
+                </div>   
+            )
+        }
+    }
 }
-
-
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    })
-  }
-  toggle1 = () => {
-    this.setState({
-      modal: !this.state.modal
-    })
-  }
-
-  handleLogout = (e) => {
-    e.preventDefault();
-    localStorage.removeItem('token');
-    localStorage.clear();
-    if (localStorage.getItem('token') == null) {
-      window.location.reload(false)
-    }
-  }
-
-
-
-  render() {
-    if (localStorage.getItem('token')) {
-      return (
-  
-    <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/admin">Foodista</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="mr-auto" navbar>
-              {/* <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem> */}
-               <NavItem>
-                <NavLink href="/addresturant/">Restaurant</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/addfood/">Food</NavLink>
-              </NavItem> 
-              {/* <NavItem>
-                <NavLink href="/Dashboard">Dashboard</NavLink>
-              </NavItem> */}
-   
-            </Nav>
-            <div>
-            <Button className="bg-light text-dark" onClick={this.handleLogout}>Logout</Button>
-              </div>
-            
-            </Collapse>
-        </Navbar>
-
-
-
-</div>
-)
-
-    }
-     }
-}
-
-

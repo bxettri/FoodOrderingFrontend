@@ -58,32 +58,32 @@ export default class Register extends Component {
                 <Form>
                     <FormGroup>
                         <Label for='Name'>Name</Label>
-                        <Input type='text' name='name' id='name'
+                        <Input type='text' name='name' placeholder="name" id='name'
                             value={this.state.name} onChange={this.handleChange} />
                     </FormGroup>
                     <FormGroup>
-                        <Label for='address'>Last Name</Label>
-                        <Input type='text' name='address' id='address'
+                        <Label for='address'>Address</Label>
+                        <Input type='text' name='address' id='address'placeholder="address"
                             value={this.state.address} onChange={this.handleChange} />
                     </FormGroup>
                     <FormGroup>
                         <Label for='phone'>phone</Label>
-                        <Input type='text' name='phone' id='phone'
+                        <Input type='text' name='phone' id='phone' placeholder="phone"
                             value={this.state.phone} onChange={this.handleChange} />
                     </FormGroup>
                     <FormGroup>
                         <Label for='email'>email</Label>
-                        <Input type='text' name='email' id='email'
+                        <Input type='text' name='email' id='email' placeholder="email"
                             value={this.state.email} onChange={this.handleChange} />
                     </FormGroup>
                     <FormGroup>
                         <Label for='username'>Username</Label>
-                        <Input type='text' name='username' id='username'
+                        <Input type='text' name='username' id='username' placeholder="username"
                             value={this.state.username} onChange={this.handleChange} />
                     </FormGroup>
                     <FormGroup>
                         <Label for='password'>Password</Label>
-                        <Input type='password' name='password' id='password'
+                        <Input type='password' name='password' id='password' placeholder="password"
                             value={this.state.password} onChange={this.handleChange} />
                     </FormGroup>
                     <Button color='primary' onClick={this.register}>Sign Up</Button>

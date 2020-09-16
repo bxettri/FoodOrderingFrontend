@@ -4,8 +4,8 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import moment from 'moment';
 import UserNavbar from '../User/UserNavbar';
-import Footer from '../Layouts/Foot';
-import { Table, Modal, ModalHeader, ModalBody, ModalFooter, Container} from 'reactstrap';
+
+import { Table, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 
 export default class Cart extends Component {
 
@@ -163,12 +163,7 @@ export default class Cart extends Component {
     );
 
     return (
-    
-      
-      <div>
-        <UserNavbar/>
-   <Container>
-      <container>
+      <div class="container-fluid">
       <div id="viewCartDiv">
         <Table hover>
           <thead>
@@ -229,13 +224,7 @@ export default class Cart extends Component {
           </ModalFooter>
         </Modal>
       </div>
-      </container>
-   
-      </Container>
-      <Footer/>
       </div>
-     
-      
     )
   }
 }

@@ -5,26 +5,17 @@ import Poppular from './Poppular';
 import Restuarant from './Restuarant';
 import Footer from '../Layouts/Foot';
 import ResturantFood from './ResturantFood';
-import { Container } from 'reactstrap';
 
 export default class Home extends Component {
-
-    
-
-
-   
     render() {
         return (
             <div>
-                <div>
                 <UserNavbar />
-               
-                {/* <Category /> */}
+                <Category />
                 <Poppular />
-                <Restuarant />
-                <ResturantFood />
+                <hr/>
+                <Restuarant/>
                 <Footer />
-                </div>
             </div>
         )
     }

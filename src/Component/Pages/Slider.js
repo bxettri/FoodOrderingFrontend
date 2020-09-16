@@ -7,7 +7,7 @@ export default class Slider extends Component {
     render() {
         return (
             <div>
-                <img src={wine}  id="slide"/>
+                <img alt="winePic" src={wine}  id="slide"/>
             </div>
         )
     }

@@ -55,7 +55,7 @@ export default class Navbar extends Component {
         localStorage.setItem('token', response.data.token)
         this.setState({
           role: response.data.role
-        }, alert("Welcome"))
+        })
       }).catch((err) => console.log(err.response))
   }
 
@@ -103,7 +103,7 @@ export default class Navbar extends Component {
 
             <form class="form-inline my-2 my-lg-0">
               <Button id="sign" color="light" variant="success" onClick={this.toggle}>SignIn</Button>{' '}
-              <Button id="siout" color="dark" variant="success" href="/register">SignUp</Button>{' '}
+              <Button  color="dark" variant="success" href="/register">Register</Button>{' '}
 
 
 
@@ -126,7 +126,7 @@ export default class Navbar extends Component {
 
                     <div className="form-group">
                       <label>Password</label>
-                      <input type="password" name="password" className="form-control" placeholder="Enter password"
+                      <input type="password" name="password" className="form-control" placeholder="Password"
                         value={this.state.password} onChange={this.handlechange} />
                     </div>
 

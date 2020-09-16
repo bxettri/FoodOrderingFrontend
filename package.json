@@ -14,22 +14,27 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "express": "^4.17.1",
-    "fontawesome": "^5.6.3",
+    "moment": "^2.27.0",
     "react": "^16.12.0",
+    "react-confirm-alert": "^2.6.1",
     "react-dom": "^16.12.0",
     "react-fontawesome": "^1.7.1",
     "react-icons": "^3.9.0",
     "react-mdl": "^2.1.0",
+    "react-moment": "^0.9.7",
+    "react-redux": "^7.2.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0",
+    "react-scripts": "^3.4.3",
     "reactstrap": "^8.4.1",
-    "styled-components": "^5.1.1"
+    "redux": "^4.0.5",
+    "styled-components": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,5 +50,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^5.1.0",
+    "mocha": "^8.1.3",
+    "mochawesome": "^6.1.1"
   }
 }
