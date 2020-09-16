@@ -111,7 +111,7 @@ export default class Navigation extends Component {
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                <NavLink onClick={this.handleLogout}>Logout</NavLink>
+                <NavLink id="logout" onClick={this.handleLogout}>Logout</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

@@ -11,7 +11,5 @@ describe("Add food to cart" , function()
         cy.get('input[placeholder="notes"]').type('with curry');
         cy.get('input[placeholder="quantity"]').type('2');
         cy.get('a').contains('Add to cart').click();
-     
-
     });
 })
