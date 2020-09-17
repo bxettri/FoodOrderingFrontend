@@ -139,7 +139,7 @@ export default class Food extends Component {
         this.setState({
           modal: !this.state.modal
         })
-      },alert("Food added to sucessfully")).catch((err) => console.log(err.response));
+      },alert("Food added to cart sucessfully")).catch((err) => console.log(err.response));
   }
 
   render() {
